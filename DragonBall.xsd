@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="DRAGON-BALL">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="personajes" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="personaje">
+                                <xs:complexType >
+                                    <xs:sequence>
+                                        <xs:element name="nombre"/>
+                                        <xs:element name="procedencia"/>
+                                        <xs:element name="especie"/>
+                                        <xs:element name="planeta">
+                                            <xs:complexType>
+                                                <xs:attribute name="universo">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:integer">
+                                                            <xs:minInclusive value="7"/>
+                                                            <xs:maxInclusive value="7"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>    
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="habilidades">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="habilidad">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="tipo"></xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="transformaciones">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="transformacion">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="poder"></xs:element>
+                                                                <xs:element name="numero"></xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:ID"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>   
+                </xs:element>
+                <xs:element name="relaciones">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="relacion">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="amigo"></xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="ref" type="xs:IDREF"/>
+                    </xs:complexType>
+                </xs:element>  
+            </xs:sequence>          
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
